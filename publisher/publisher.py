@@ -22,10 +22,13 @@ while True:
         "timestamp": datetime.now().isoformat()
     }
 
+    topic_veiculo = f"telemetria/frotas/{payload['veiculo']}"
+
     client.publish(
-        TOPIC,
-        json.dumps(payload)
-    )
+        topic_veiculo,
+        json.dumps(payload),
+         qos=1
+)
 
     print("📤 Telemetria enviada:")
     print(json.dumps(payload, indent=4, ensure_ascii=False))

@@ -2,7 +2,11 @@ import json
 import paho.mqtt.client as mqtt
 
 from config.mqtt_config import *
+
+
 def on_message(client, userdata, msg):
+    print(f"Tópico recebido: {msg.topic}")
+
     data = json.loads(msg.payload.decode())
 
     veiculo = data["veiculo"]
@@ -36,7 +40,7 @@ client.on_message = on_message
 
 client.connect(BROKER, PORT)
 
-client.subscribe(TOPIC, qos=1)
+client.subscribe("telemetria/frotas/#", qos=1)
 
 print("🖥️ Central de Monitoramento Ativa. Aguardando dados da frota...")
 
