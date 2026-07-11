@@ -2,10 +2,6 @@ import json
 import paho.mqtt.client as mqtt
 
 from config.mqtt_config import *
-
-LIMITE_VELOCIDADE = 90
-
-
 def on_message(client, userdata, msg):
     data = json.loads(msg.payload.decode())
 

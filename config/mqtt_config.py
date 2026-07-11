@@ -6,3 +6,4 @@ TOPIC = "telemetria/frotas/velocidade"
 CLIENT_ID_PUBLISHER = "publisher"
 
 CLIENT_ID_SUBSCRIBER = "subscriber"
+LIMITE_VELOCIDADE = 90
